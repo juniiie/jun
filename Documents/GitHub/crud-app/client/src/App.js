@@ -2,6 +2,8 @@ import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
 
+// Axios is a library which allows you to make requests to an API
+
 function App() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
@@ -10,6 +12,7 @@ function App() {
   const [wage, setWage] = useState(0);
 
   const addEmployee = () => {
+    // Send info from FE TO BE - Basically sending objects below to BE
     Axios.post("http://localhost:3001/create", {
       name: name,
       age: age,

@@ -1,8 +1,13 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const mysql = require("mysql"); //Import MySQL
+const cors = require("cors");
 
-// Connect DB
+app.use(cors());
+app.use(express.json());
+
+// Connect DB - Setting up connection for database
+//This is what I need to create, delete, edit
 const db = mysql.createConnection({
   user: "root",
   host: "localhost",
@@ -11,6 +16,7 @@ const db = mysql.createConnection({
 });
 
 // Create routes
+// This is how we get information from FE to BE
 app.post("/create", (req, res) => {
   const name = req.body.name;
   const age = req.body.age;
